@@ -1,6 +1,6 @@
 title: 김기백의 포트폴리오  # 웹브라우저 탭에 표시될 제목입니다.
 description: AI Engineering Student Portfolio # 웹사이트 설명입니다.
-theme: jekyll-theme-cayman  # GitHub이 무료로 제공하는 깔끔한 레이아웃 테마입니다.
+theme: jekyll-theme-hacker  # GitHub이 무료로 제공하는 깔끔한 레이아웃 테마입니다.
 
 # 본인의 GitHub 페이지 주소에 맞게 아래 두 줄을 수정해주세요.
 url: "https://baekki11.github.io"
