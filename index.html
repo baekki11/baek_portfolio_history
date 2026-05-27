@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Engineering Portfolio - [본인 이름]</title>
+    <title>AI Engineering Portfolio - 김기백</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -11,16 +11,15 @@
     <style>
         /* --- [CORE STYLE] 화이트 & 화려한 그라디언트 믹스 --- */
         :root {
-            /* Palette: Clean White + Vibrant Accents */
-            --bg-color: #ffffff; /* 순백색 배경 */
-            --text-main: #1e293b; /* 짙은 네이비 (가독성용) */
-            --text-sub: #64748b; /* 회색 */
+            --bg-color: #ffffff; 
+            --text-main: #1e293b; 
+            --text-sub: #64748b; 
             --white: #ffffff;
 
-            /* Accent Gradients: Cyan/Pink/Purple (화려함 포인트) */
-            --accent-1: #22d3ee; /* Cyan */
-            --accent-2: #f472b6; /* Pink */
-            --accent-3: #a78bfa; /* Purple */
+            /* Accent Gradients: Cyan/Pink/Purple */
+            --accent-1: #22d3ee; 
+            --accent-2: #f472b6; 
+            --accent-3: #a78bfa; 
             --gradient-accent: linear-gradient(135deg, var(--accent-1), var(--accent-2) 50%, var(--accent-3));
             --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --shadow-gradient: 0 10px 30px rgba(34, 211, 238, 0.2);
@@ -31,7 +30,7 @@
         body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: var(--transition); }
         ul { list-style: none; }
-        h1, h2, h3 { color: var(--text-main); font-weight: 700; }
+        h1, h2, h3, h4 { color: var(--text-main); font-weight: 700; }
 
         /* Typography & Utility */
         .section-title { font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 60px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
@@ -58,102 +57,114 @@
         .gradient-border-card:hover::before { opacity: 1; }
         .gradient-border-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-gradient); }
         
-        /* Inner content adjustment for pseudo-element border */
         .card-inner { background: var(--white); border-radius: 15px; padding: 0; height: 100%; width: 100%; }
-
 
         /* --- 1. Header (Navbar) --- */
         header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 1px 0 rgba(0,0,0,0.05); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
         .logo { font-size: 24px; font-weight: 700; color: var(--text-main); }
+        .logo span { background: var(--gradient-accent); -webkit-background-clip: text; color: transparent; }
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { font-size: 16px; font-weight: 500; color: var(--text-sub); position: relative; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent-2); }
         .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--gradient-accent); transition: var(--transition); }
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-
         /* --- 2. Hero Section --- */
         #hero { padding: 180px 0 100px; text-align: center; position: relative; overflow: hidden; background-color: var(--white); }
-        /* 화려한 그래픽 배경 요소 */
         #hero::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, rgba(244, 114, 182, 0.05) 50%, transparent 70%); border-radius: 50%; z-index: 0; }
         
         .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
         .hero-subtitle { font-size: 20px; font-weight: 500; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 10px; }
-        .hero-title { font-size: 56px; font-weight: 700; line-height: 1.2; margin-bottom: 25px; color: var(--text-main); }
+        .hero-title { font-size: 52px; font-weight: 700; line-height: 1.3; margin-bottom: 25px; color: var(--text-main); }
         .hero-desc { font-size: 18px; color: var(--text-sub); max-width: 600px; margin: 0 auto 40px; }
         .btn-main { display: inline-block; padding: 15px 40px; background: var(--gradient-accent); color: var(--white); border-radius: 50px; font-weight: 700; font-size: 18px; box-shadow: var(--shadow-gradient); transition: var(--transition); border: none; cursor: pointer; }
         .btn-main:hover { transform: scale(1.05); box-shadow: 0 15px 35px rgba(34, 211, 238, 0.3); }
-
 
         /* --- 3. About Me Section --- */
         #about { padding: 100px 0; background-color: var(--bg-color); }
         .about-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
         .profile-img-wrapper { text-align: center; }
-        .profile-img { width: 300px; height: 300px; object-fit: cover; border-radius: 50%; border: 8px solid var(--white); box-shadow: var(--shadow-gradient); }
+        .profile-img { width: 280px; height: 280px; object-fit: cover; border-radius: 50%; border: 8px solid var(--white); box-shadow: var(--shadow-gradient); }
         .about-text h3 { font-size: 24px; margin-bottom: 20px; }
         .about-text p { color: var(--text-sub); margin-bottom: 15px; }
         .about-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
         .meta-item { display: flex; align-items: center; gap: 10px; font-size: 16px; color: var(--text-main); }
-        .meta-item i { color: var(--accent-1); }
+        .meta-item i { color: var(--accent-1); width: 20px; }
 
-
-        /* --- 4. Education & Experience (Timeline) --- */
-        #history { padding: 100px 0; background-color: #fafafa; }
-        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 0 20px; }
-        .timeline::before { content: ''; position: absolute; top: 0; left: 30px; width: 4px; height: 100%; background: var(--gradient-accent); border-radius: 2px; }
+        /* --- 4. Education & Academic Score (Enhanced) --- */
+        #education { padding: 100px 0; background-color: #fafafa; }
+        .edu-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; margin-top: 20px; }
+        .edu-info h3 { font-size: 22px; margin-bottom: 15px; color: var(--text-main); }
+        .edu-info .sub-title { font-size: 16px; color: var(--text-sub); margin-bottom: 25px; }
+        .course-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .course-tag { background: rgba(34, 211, 238, 0.08); color: #0891b2; padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 500; border: 1px solid rgba(34, 211, 238, 0.2); }
         
-        .timeline-item { position: relative; margin-bottom: 50px; padding-left: 70px; }
-        .timeline-dot { position: absolute; top: 5px; left: 22px; width: 20px; height: 20px; background: var(--white); border: 4px solid var(--accent-1); border-radius: 50%; box-shadow: var(--shadow-gradient); z-index: 1; }
-        .timeline-date { font-size: 16px; font-weight: 600; color: var(--accent-1); margin-bottom: 5px; }
-        .timeline-content { background: var(--white); padding: 25px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-subtle); }
-        .timeline-content h3 { font-size: 20px; margin-bottom: 10px; }
-        .timeline-content p { font-size: 16px; color: var(--text-sub); }
+        .score-board { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow-subtle); border: 1px solid rgba(0,0,0,0.03); }
+        .term-box { margin-bottom: 25px; }
+        .term-box:last-child { margin-bottom: 0; }
+        .term-title { font-size: 16px; font-weight: 700; color: var(--text-main); display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #f1f5f9; }
+        .term-gpa { color: var(--accent-2); font-weight: 700; }
+        .grade-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 15px; }
+        .grade-item { display: flex; justify-content: space-between; font-size: 14px; color: var(--text-sub); }
+        .grade-val { font-weight: 600; color: var(--text-main); }
+        .grade-val.plus { color: #10b981; }
+        .grade-val.fail { color: #ef4444; }
 
-
-        /* --- 5. Skills Section (Grid) --- */
+        /* --- 5. Skills Section --- */
         #skills { padding: 100px 0; background-color: var(--bg-color); }
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
         .skill-card h3 { font-size: 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
         .skill-card h3 i { color: var(--accent-1); font-size: 24px; }
         .skill-list { color: var(--text-sub); }
-        .skill-list li { margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .skill-level { font-size: 12px; font-weight: 700; color: var(--accent-2); background: rgba(244, 114, 182, 0.1); padding: 2px 8px; border-radius: 10px; }
+        .skill-list li { margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #f1f5f9; padding-bottom: 6px; }
+        .skill-list li:last-child { border-bottom: none; }
+        .skill-level { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 10px; }
+        .skill-level.inter { color: var(--accent-3); background: rgba(167, 139, 250, 0.1); }
+        .skill-level.basic { color: var(--text-sub); background: #f1f5f9; }
 
+        /* --- 6. Experience & Activities Section --- */
+        #experience { padding: 100px 0; background-color: #fafafa; }
+        .exp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .exp-card { background: var(--white); padding: 25px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--shadow-subtle); text-align: center; transition: var(--transition); }
+        .exp-card:hover { transform: translateY(-5px); border-color: var(--accent-2); box-shadow: 0 10px 20px rgba(244, 114, 182, 0.1); }
+        .exp-card i { font-size: 28px; background: var(--gradient-accent); -webkit-background-clip: text; color: transparent; margin-bottom: 15px; display: inline-block; }
+        .exp-card p { font-weight: 600; color: var(--text-main); font-size: 16px; }
 
-        /* --- 6. Projects Section (Bleed) --- */
-        #projects { padding: 100px 0; background-color: #fafafa; }
-        .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px; background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-subtle); }
-        .project-img-wrapper { height: 100%; border-right: 1px solid rgba(0,0,0,0.05); }
-        .project-img { width: 100%; height: 100%; object-fit: cover; }
-        .project-text { padding: 50px; }
+        /* --- 7. Projects Section --- */
+        #projects { padding: 100px 0; background-color: var(--bg-color); }
+        .project-item { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; background: #fafafa; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-subtle); border: 1px solid rgba(0,0,0,0.03); }
+        .project-img-wrapper { height: 100%; min-height: 300px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; color: var(--text-sub); font-size: 40px; }
+        .project-text { padding: 40px; }
         .project-tag { font-size: 14px; font-weight: 600; color: var(--white); background: var(--gradient-accent); padding: 4px 12px; border-radius: 20px; margin-bottom: 15px; display: inline-block; }
-        .project-text h3 { font-size: 28px; margin-bottom: 15px; }
-        .project-text p { color: var(--text-sub); margin-bottom: 25px; }
+        .project-text h3 { font-size: 26px; margin-bottom: 15px; }
+        .project-text p { color: var(--text-sub); margin-bottom: 20px; font-size: 15px; }
+        .project-info-list { margin-bottom: 25px; font-size: 14px; color: var(--text-main); }
+        .project-info-list li { margin-bottom: 6px; display: flex; gap: 10px; }
+        .project-info-list strong { width: 90px; color: var(--text-sub); }
         .project-links { display: flex; gap: 15px; }
-        .btn-outline { display: inline-block; padding: 10px 25px; border: 2px solid var(--accent-1); color: var(--accent-1); border-radius: 50px; font-weight: 600; font-size: 16px; }
+        .btn-outline { display: inline-block; padding: 10px 25px; border: 2px solid var(--accent-1); color: var(--accent-1); border-radius: 50px; font-weight: 600; font-size: 15px; }
         .btn-outline:hover { background: var(--accent-1); color: var(--white); box-shadow: var(--shadow-gradient); }
 
-
-        /* --- 7. Contact Section --- */
-        #contact { padding: 100px 0; background-color: var(--bg-color); text-align: center; }
+        /* --- 8. Contact Section --- */
+        #contact { padding: 100px 0; background-color: #fafafa; text-align: center; }
         .contact-content { max-width: 600px; margin: 0 auto; }
-        .contact-links { display: flex; justify-content: center; gap: 40px; margin-top: 50px; font-size: 30px; }
+        .contact-links { display: flex; justify-content: center; gap: 40px; margin-top: 40px; font-size: 32px; }
+        .contact-links a { color: var(--text-sub); }
         .contact-links a:hover { color: var(--accent-2); transform: scale(1.2); }
 
-
-        /* --- 8. Footer --- */
-        footer { padding: 40px 0; background-color: #f1f5f9; text-align: center; color: var(--text-sub); }
+        /* --- 9. Footer --- */
+        footer { padding: 40px 0; background-color: #f1f5f9; text-align: center; color: var(--text-sub); border-top: 1px solid #e2e8f0; }
         footer p { font-size: 14px; }
-
 
         /* --- [RESPONSIVE] --- */
         @media (max-width: 992px) {
-            .hero-title { font-size: 42px; }
-            .about-wrapper { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-            .project-item { grid-template-columns: 1fr; }
-            .project-img-wrapper { height: 300px; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            .hero-title { font-size: 38px; }
+            .about-wrapper, .edu-grid, .project-item { grid-template-columns: 1fr; gap: 30px; }
+            .project-img-wrapper { min-height: 200px; height: 200px; }
+            .project-text { padding: 30px; }
+            .grade-list { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -165,8 +176,9 @@
             <nav class="nav-links">
                 <a href="#hero" class="active">Home</a>
                 <a href="#about">About</a>
-                <a href="#history">Experience</a>
+                <a href="#education">Education</a>
                 <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -176,8 +188,8 @@
     <section id="hero">
         <div class="container hero-content">
             <p class="hero-subtitle">NEXT-GEN AI ENGINEER</p>
-            <h1 class="hero-title">인공지능으로 세상을 연결하는 <span class="text-gradient">[본인 이름]</span>입니다.</h1>
-            <p class="hero-desc">조선대학교 인공지능공학과 3학년 | Computer Vision & Deep Learning Specialist</p>
+            <h1 class="hero-title">인공지능으로 세상을 연결하는 <br><span class="text-gradient">[본인 이름]</span>입니다.</h1>
+            <p class="hero-desc">조선대학교 인공지능공학과 2학년 | Computer Vision & NLP Enthusiast</p>
             <button class="btn-main" onclick="location.href='#projects'">대표 프로젝트 보기</button>
         </div>
     </section>
@@ -187,49 +199,71 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-wrapper">
                 <div class="profile-img-wrapper">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/2631499711039558064" alt="Profile" class="profile-img">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400" alt="Profile" class="profile-img">
                 </div>
                 <div class="about-text">
-                    <h3>Future AI Solution Architect</h3>
-                    <p>인공지능공학을 전공하며 Computer Vision과 Deep Learning의 실무적 적용에 깊은 관심을 가지고 있습니다.</p>
-                    <p>단순히 모델을 만드는 것을 넘어, 실제 사용자가 가치를 느낄 수 있는 AI 기반 서비스를 설계하고 배포하는 AI 개발자를 목표로 합니다.</p>
+                    <h3>Future AI Service Developer & Researcher</h3>
+                    <p>인공지능공학을 전공하며 Computer Vision, Natural Language Processing, Data Analysis 분야에 깊은 관심을 가지고 연구와 학습을 진행하고 있습니다.</p>
+                    <p>단순한 이론 공부를 넘어 실제 사용자가 가치를 체감할 수 있는 신기술 기반의 AI 서비스를 설계하고, 미래 자율주행 자동차 및 의학 AI 솔루션을 혁신하는 개발자를 목표로 합니다.</p>
                     <div class="about-meta">
-                        <div class="meta-item"><i class="fa-solid fa-graduation-cap"></i> 조선대학교 인공지능공학과</div>
-                        <div class="meta-item"><i class="fa-solid fa-location-dot"></i> Gwangju, South Korea</div>
-                        <div class="meta-item"><i class="fa-solid fa-envelope"></i> student@example.com</div>
-                        <div class="meta-item"><i class="fa-solid fa-file-pdf"></i> <a href="./resume.pdf" class="text-gradient" target="_blank">Download CV</a></div>
+                        <div class="meta-item"><i class="fa-solid fa-graduation-cap"></i> 조선대학교 인공지능공학과 (2학년)</div>
+                        <div class="meta-item"><i class="fa-solid fa-car-side"></i> 자율주행 자동차 / 의학 AI 관심</div>
+                        <div class="meta-item"><i class="fa-solid fa-envelope"></i> knj3086@gmail.com</div>
+                        <div class="meta-item"><i class="fa-solid fa-file-pdf"></i> <a href="./resume.pdf" class="text-gradient" target="_blank">Download CV (Resume)</a></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="history">
+    <section id="education">
         <div class="container">
-            <h2 class="section-title">Experience & Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2026.03 - 2026.05</div>
-                    <div class="timeline-content">
-                        <h3>Object Detection System Dev</h3>
-                        <p>YOLOv8 모델 기반 실시간 객체 인식 및 Flask 웹 대시보드 구축</p>
+            <h2 class="section-title">Education & Academic</h2>
+            <div class="edu-grid">
+                <div class="edu-info">
+                    <h3>조선대학교 (Chosun University)</h3>
+                    <p class="sub-title">인공지능공학과 학사 과정 (2학년 재학 중)</p>
+                    <p style="color: var(--text-sub); margin-bottom: 15px;">이론적 기초와 실제 구현 능력을 기르기 위해 핵심 전공 교과목을 심도 있게 수강하였습니다.</p>
+                    <h4 style="font-size: 16px; margin-bottom: 10px;"><i class="fa-solid fa-book-open" style="color:var(--accent-1); margin-right:8px;"></i>주요 수강 과목</h4>
+                    <div class="course-tags">
+                        <span class="course-tag">기계학습</span>
+                        <span class="course-tag">데이터구조</span>
+                        <span class="course-tag">AI 신호 및 시스템</span>
+                        <span class="course-tag">오픈소스 SW 개론</span>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2025.09 - Present</div>
-                    <div class="timeline-content">
-                        <h3>AI Lab Intern</h3>
-                        <p>Computer Vision Research, Medical Image Analysis</p>
+                
+                <div class="score-board">
+                    <div class="term-box">
+                        <div class="term-title">
+                            <span>1학년 2학기</span>
+                            <span class="term-gpa">GPA: 3.167</span>
+                        </div>
+                        <div class="grade-list">
+                            <div class="grade-item"><span>심화프로그래밍</span><span class="grade-val">A0</span></div>
+                            <div class="grade-item"><span>AI프로그래밍및실습</span><span class="grade-val">B+</span></div>
+                            <div class="grade-item"><span>말하기와실용글쓰기</span><span class="grade-val">B+</span></div>
+                            <div class="grade-item"><span>선형대수학</span><span class="grade-val">B0</span></div>
+                            <div class="grade-item"><span>인공지능</span><span class="grade-val">B0</span></div>
+                            <div class="grade-item"><span>지역스포츠산업의이해</span><span class="grade-val">C0</span></div>
+                            <div class="grade-item"><span>AI·SW개론</span><span class="grade-val">Pass</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024.03 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Chosun University</h3>
-                        <p>Dept. of Artificial Intelligence Engineering, 3rd Year</p>
+                    
+                    <div class="term-box">
+                        <div class="term-title">
+                            <span>1학년 1학기</span>
+                            <span class="term-gpa">GPA: 3.0</span>
+                        </div>
+                        <div class="grade-list">
+                            <div class="grade-item"><span>프로그래밍언어및실습</span><span class="grade-val plus">A+</span></div>
+                            <div class="grade-item"><span>확률과통계</span><span class="grade-val plus">A+</span></div>
+                            <div class="grade-item"><span>기초프로그래밍</span><span class="grade-val">B+</span></div>
+                            <div class="grade-item"><span>미분적분학</span><span class="grade-val">B0</span></div>
+                            <div class="grade-item"><span>한국사,뿌리깊은이야기</span><span class="grade-val">C+</span></div>
+                            <div class="grade-item"><span>신입생세미나</span><span class="grade-val">Pass</span></div>
+                            <div class="grade-item"><span>비만학개론</span><span class="grade-val fail">F</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -244,9 +278,10 @@
                     <div class="card-inner">
                         <h3><i class="fa-solid fa-code"></i> Programming</h3>
                         <ul class="skill-list">
-                            <li>Python <span class="skill-level">Intermediate</span></li>
-                            <li>C/C++ <span class="skill-level">Basic</span></li>
-                            <li>JavaScript <span class="skill-level">Basic</span></li>
+                            <li>Python <span class="skill-level inter">Intermediate</span></li>
+                            <li>C <span class="skill-level inter">Intermediate</span></li>
+                            <li>C++ <span class="skill-level basic">Basic</span></li>
+                            <li>JavaScript <span class="skill-level basic">Basic</span></li>
                         </ul>
                     </div>
                 </div>
@@ -254,9 +289,9 @@
                     <div class="card-inner">
                         <h3><i class="fa-solid fa-brain"></i> AI / ML</h3>
                         <ul class="skill-list">
-                            <li>PyTorch <span class="skill-level">Basic +</span></li>
-                            <li>scikit-learn <span class="skill-level">Intermediate</span></li>
-                            <li>TensorFlow <span class="skill-level">Basic</span></li>
+                            <li>PyTorch <span class="skill-level basic">Basic</span></li>
+                            <li>TensorFlow <span class="skill-level basic">Basic</span></li>
+                            <li>scikit-learn <span class="skill-level basic">Basic</span></li>
                         </ul>
                     </div>
                 </div>
@@ -264,12 +299,30 @@
                     <div class="card-inner">
                         <h3><i class="fa-solid fa-layer-group"></i> Web & Tools</h3>
                         <ul class="skill-list">
-                            <li>HTML/CSS/React <span class="skill-level">Intermediate</span></li>
-                            <li>MySQL <span class="skill-level">Basic</span></li>
-                            <li>Git / Docker <span class="skill-level">Basic +</span></li>
+                            <li>HTML <span class="skill-level basic">Basic</span></li>
+                            <li>Docker <span class="skill-level basic">Basic</span></li>
+                            <li>Git / GitHub <span class="skill-level basic">Basic</span></li>
+                            <li>VS Code <span class="skill-level basic">Basic</span></li>
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Activities</h2>
+            <div class="exp-grid">
+                <div class="exp-card"><i class="fa-solid fa-flask"></i><p>연구실 인턴</p></div>
+                <div class="exp-card"><i class="fa-solid fa-users"></i><p>동아리 활동</p></div>
+                <div class="exp-card"><i class="fa-solid fa-trophy"></i><p>공모전 참여</p></div>
+                <div class="exp-card"><i class="fa-solid fa-laptop-code"></i><p>해커톤</p></div>
+                <div class="exp-card"><i class="fa-solid fa-people-group"></i><p>팀 프로젝트</p></div>
+                <div class="exp-card"><i class="fa-solid fa-chalkboard-user"></i><p>수업 조교 경험</p></div>
+                <div class="exp-card"><i class="fa-solid fa-school"></i><p>학과 활동</p></div>
+                <div class="exp-card"><i class="fa-solid fa-code-branch"></i><p>개인 개발 활동</p></div>
+                <div class="exp-card"><i class="fa-solid fa-handshake-angle"></i><p>오픈소스 기여</p></div>
             </div>
         </div>
     </section>
@@ -279,15 +332,22 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-item">
                 <div class="project-img-wrapper">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/9781897987626522920" alt="Project 1" class="project-img">
+                    <i class="fa-solid fa-chart-line"></i>
                 </div>
                 <div class="project-text">
-                    <span class="project-tag">Computer Vision</span>
-                    <h3>실시간 객체 인식 시스템</h3>
-                    <p>YOLO 모델을 활용하여 실시간 영상 스트림에서 객체를 탐지하고 결과를 웹 대시보드에 시각화하는 엔드투엔드 시스템입니다.</p>
+                    <span class="project-tag">AI / Machine Learning</span>
+                    <h3>Project (예시 프로젝트 제목)</h3>
+                    <p>여기에 본인이 수행한 인공지능 관련 프로젝트의 상세한 설명을 작성해 보세요. index.md의 구조를 시각적으로 완성했습니다.</p>
+                    <ul class="project-info-list">
+                        <li><strong>수행 기간</strong> 2026.XX - 2026.XX</li>
+                        <li><strong>사용 기술</strong> Python, PyTorch, Git</li>
+                        <li><strong>본인 역할</strong> AI 모델 설계 및 데이터 전처리 담당</li>
+                        <li><strong>주요 기능</strong> 실시간 분석 및 결과 시각화 기능 제공</li>
+                        <li><strong>성과/결과</strong> 테스트 데이터 기준 정확도 XX% 달성</li>
+                    </ul>
                     <div class="project-links">
-                        <a href="https://github.com/username/portfolio" target="_blank" class="btn-outline">GitHub</a>
-                        <a href="#" target="_blank" class="btn-outline">Demo</a>
+                        <a href="https://github.com/baekki11/portfolio" target="_blank" class="btn-outline">GitHub</a>
+                        <a href="#" target="_blank" class="btn-outline">Demo / Link</a>
                     </div>
                 </div>
             </div>
@@ -297,11 +357,10 @@
     <section id="contact">
         <div class="container contact-content">
             <h2 class="section-title">Let's Connect</h2>
-            <p>새로운 기술적 도전과 협업의 기회를 언제나 환영합니다.<br>이메일이나 GitHub을 통해 편하게 연락주세요.</p>
+            <p>인공지능 분야의 새로운 기술적 도전과 협업 기회를 언제나 환영합니다.<br>이메일이나 GitHub을 통해 편하게 연락해 주세요.</p>
             <div class="contact-links">
-                <a href="mailto:student@example.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://github.com/username" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="#" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:knj3086@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://github.com/baekki11" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
         </div>
     </section>
@@ -309,37 +368,35 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 [본인 이름]. All Rights Reserved.</p>
-            <p style="margin-top: 5px;">Created for AI Engineering Portfolio Task.</p>
+            <p style="margin-top: 5px; font-size: 12px;">Created for Chosun University AI Engineering Portfolio.</p>
         </div>
     </footer>
 
     <script>
         // --- 1. Dynamic Header (Scroll Effect) ---
         const header = document.querySelector('header');
-        const heroTitleText = document.querySelector('.hero-title');
-
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.style.boxShadow = 'var(--shadow-gradient)';
-                // 헤더 로고나 텍스트에 화려한 그라디언트 효과를 주고 싶다면 여기에 추가
             } else {
                 header.style.boxShadow = '0 1px 0 rgba(0,0,0,0.05)';
             }
         });
 
-        // --- 2. Smooth Scrolling ---
+        // --- 2. Smooth Scrolling & Active Link Toggle ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
-                        top: target.offsetTop - 80, // Navbar height offset
+                        top: target.offsetTop - 80, 
                         behavior: 'smooth'
                     });
-
-                    // Active Link Update
-                    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+                    navLinks.forEach(a => a.classList.remove('active'));
                     this.classList.add('active');
                 }
             });
